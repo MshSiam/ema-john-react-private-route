@@ -16,10 +16,7 @@ const useFirebase = () => {
 
   //   google sign in // //
   const signinUsingGoogle = () => {
-    signInWithPopup(auth, googleProvider).then((result) => {
-      setUser(result.usser)
-      console.log(result.user)
-    })
+    return signInWithPopup(auth, googleProvider)
   }
 
   // // sign out // //
@@ -29,6 +26,7 @@ const useFirebase = () => {
     })
   }
 
+  // observes weather state change or not
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       setUser(user)
